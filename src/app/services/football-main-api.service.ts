@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class FootballMainApiService {
   private API = 'https://v3.football.api-sports.io';
-  // private apiKey = 'e0a692b30e2fcd4c5eb86e5acd620b1a';
-  private apiKey = '59c374a599ebc97a6f6b6ec5fa2dd68e';
+  private apiKey = 'e0a692b30e2fcd4c5eb86e5acd620b1a';
+  // private apiKey = '59c374a599ebc97a6f6b6ec5fa2dd68e';
   // private apiKey = '';
   private readonly currentYear: number = new Date().getFullYear(); // Get the current year
   private readonly leagueId: any = {

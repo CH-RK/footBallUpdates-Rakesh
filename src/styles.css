@@ -163,7 +163,7 @@ body {
 .customGrid {
   width: 70%;
   margin-left: 200px;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 .btn-custom {
   margin-top: 25px;
@@ -178,4 +178,13 @@ body {
 
 span.mdc-tab-indicator__content.mdc-tab-indicator__content--underline {
   border: #ef7b29 solid 3px !important;
+}
+.leaguesHeading {
+  margin-top: 25px !important;
+  margin-left: 200px !important;
+}
+.currentSeason {
+  float: right;
+  margin-top: -40px !important;
+  margin-right: 360px !important;
 }

@@ -14,7 +14,12 @@
   </a>
 </nav>
 <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
-
+<h4 class="leaguesHeading" *ngIf="isVisible">
+  Top League : <b>{{ allData.league.name }}</b>
+</h4>
+<h4 class="currentSeason" *ngIf="isVisible">
+  Current Season : <b>{{ allData.league.season }}</b>
+</h4>
 <ag-grid-angular
   *ngIf="this.rowData.length && isVisible"
   style="width: 70%; height: 65%"

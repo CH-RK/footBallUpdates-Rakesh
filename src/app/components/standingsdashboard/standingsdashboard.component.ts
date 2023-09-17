@@ -19,6 +19,7 @@ export class StandingsdashboardComponent {
   public rowData: [] = [];
   leagues: StandingsData[] = [];
   isVisible: boolean = false;
+  allData: any = [];
   constructor(private footBallApi: FootballMainApiService) {}
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class StandingsdashboardComponent {
   getStandings(country: string) {
     this.footBallApi.getStandingsData(country).subscribe((data: any) => {
       this.rowData = data.response[0].league.standings[0];
+      this.allData = data.response[0]
       this.isVisible = this.rowData.length ? true : false;
     });
   }
