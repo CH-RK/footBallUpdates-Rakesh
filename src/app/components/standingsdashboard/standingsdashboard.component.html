@@ -1,0 +1,26 @@
+<nav
+  class="customNav"
+  mat-tab-nav-bar
+  backgroundColor="primary"
+  [tabPanel]="tabPanel"
+>
+  <a
+    mat-tab-link
+    *ngFor="let link of links"
+    (click)="activeLink = link; getStandings(link.apiDef)"
+    [active]="activeLink == link"
+  >
+    {{ link.title }}
+  </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+<ag-grid-angular
+  *ngIf="this.rowData.length && isVisible"
+  style="width: 70%; height: 65%"
+  class="ag-theme-alpine customGrid"
+  [columnDefs]="columnDefs"
+  [rowData]="rowData"
+></ag-grid-angular>
+
+<p *ngIf="!isVisible" class="noRecords">No Records Found Please try Again...</p>

@@ -1,0 +1,15 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Last 10 Games</mat-card-title>
+  </mat-card-header>
+</mat-card>
+<ag-grid-angular
+  style="width: 70%; height: 65%"
+  class="ag-theme-alpine customGrid"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+>
+</ag-grid-angular>
+<div class="btn-custom">
+  <button mat-raised-button [routerLink]="['/standings']">Back</button>
+</div>
