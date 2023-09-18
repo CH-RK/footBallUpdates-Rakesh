@@ -1,17 +1,17 @@
-export class StandingsData {
-  rank!: number;
-  team!: {
+export interface StandingsData {
+  rank: number;
+  team: {
     id: number;
     name: string;
     logo: string;
   };
-  points!: number;
-  goalsDiff!: number;
-  group!: string;
-  form: string | undefined;
-  status: string | undefined;
-  description: string | undefined;
-  all!: {
+  points: number;
+  goalsDiff: number;
+  group: string;
+  form: string;
+  status: string;
+  description: string;
+  all: {
     played: number;
     win: number;
     draw: number;
@@ -21,31 +21,27 @@ export class StandingsData {
       against: number;
     };
   };
-  home:
-    | {
-        played: number;
-        win: number;
-        draw: number;
-        lose: number;
-        goals: {
-          for: number;
-          against: number;
-        };
-      }
-    | undefined;
-  away:
-    | {
-        played: number;
-        win: number;
-        draw: number;
-        lose: number;
-        goals: {
-          for: number;
-          against: number;
-        };
-      }
-    | undefined;
-  update: string | undefined;
+  home: {
+    played: number;
+    win: number;
+    draw: number;
+    lose: number;
+    goals: {
+      for: number;
+      against: number;
+    };
+  };
+  away: {
+    played: number;
+    win: number;
+    draw: number;
+    lose: number;
+    goals: {
+      for: number;
+      against: number;
+    };
+  };
+  update: string;
 }
 
 export interface responseObj {
@@ -73,6 +69,6 @@ export interface LeagueData {
     logo: string;
     flag: string;
     season: number;
-    standings: StandingsData[];
+    standings: StandingsData[][];
   };
 }
