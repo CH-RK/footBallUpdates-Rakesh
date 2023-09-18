@@ -15,5 +15,5 @@ export const gridColums = [
   { headerName: 'L', field: 'all.lose', width: 100 },
   { headerName: 'D', field: 'all.draw', width: 100 },
   { headerName: 'Goal Difference', field: 'goalsDiff', width: 150 },
-  { headerName: 'Points', field: 'points', width: 100 }
+  { headerName: 'Points', field: 'points', width: 100 },
 ];
