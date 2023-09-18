@@ -3,6 +3,7 @@ import { fixtureGridColumns } from './grid-fixture-columns';
 import { FootballMainApiService } from 'src/app/services/football-main-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColDef } from 'ag-grid-community';
+import { responseObjFixtures } from 'src/app/models/fixturemodel';
 
 @Component({
   selector: 'app-fixture-team-details',
@@ -25,8 +26,8 @@ export class FixtureTeamDetailsComponent {
       this.getTeamFixtures(this.teamId);
     });
   }
-  getTeamFixtures(teamId: Number) {
-    this.footBallAPI.getTopListTeams(teamId).subscribe((data: any) => {
+  getTeamFixtures(teamId: number) {
+    this.footBallAPI.getTopListTeams(teamId).subscribe((data: responseObjFixtures) => {
       this.rowData = data.response;
       // this.country = data.response[0].league.id;
       console.log(data);
