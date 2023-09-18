@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class FootballMainApiService {
   private API = 'https://v3.football.api-sports.io';
   private readonly currentYear: number = new Date().getFullYear(); // Get the current year
-  private readonly leagueId: any = {
+  private readonly leagueId: { [league: string]: number } = {
     england: 39,
     spain: 107,
     germany: 78,
