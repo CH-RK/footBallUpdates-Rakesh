@@ -36,7 +36,7 @@ export class StandingsdashboardComponent {
   }
 
   getStandings(country: string) {
-    this.footBallApi.getStandingsData(country).subscribe((data: any) => {
+    this.footBallApi.getStandingsData(country).subscribe((data: responseObj) => {
       this.rowData = data.response[0].league.standings[0];
       this.allData = data.response[0];
       this.isVisible = this.rowData.length ? true : false;

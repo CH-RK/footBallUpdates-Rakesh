@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { responseObj } from '../models/league';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,7 @@ export class FootballMainApiService {
   getStandingsData(
     league: string,
     season: string = this.currentYear.toString()
-  ) {
+  ): Observable<responseObj> {
     this.prevSelectedLeague = league;
     return this.http
       .get(
