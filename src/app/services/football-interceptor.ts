@@ -14,7 +14,7 @@ export class FootballInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const apiKey = 'a9caec50728df52be3bea925d025c757';
+    const apiKey = '75ae6c12ab6417089aa84000407fe0b6';
     // const apiKey = '';
     const auth = req.clone({
       headers: new HttpHeaders({
