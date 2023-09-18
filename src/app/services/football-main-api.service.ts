@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { responseObj } from '../models/league';
+import { HttpClient, HttpResponse, HttpResponseBase } from '@angular/common/http';
+import { resObj, responseObj } from '../models/league';
 
 @Injectable({
   providedIn: 'root',
@@ -21,18 +21,9 @@ export class FootballMainApiService {
 
   getStandingsData(
     league: string,
-    season: string = this.currentYear.toString()
-  ): Observable<responseObj> {
+    season: string = this.currentYear.toString()): Observable<responseObj> {
     this.prevSelectedLeague = league;
-    return this.http
-      .get(
-        `${this.API}/standings?league=${this.leagueId[league]}&season=${season}`
-      )
-      .pipe(
-        map((response) => {
-          return response;
-        })
-      );
+    return this.http.get<responseObj>(`${this.API}/standings?league=${this.leagueId[league]}&season=${season}`)
   }
 
   getTopListTeams(

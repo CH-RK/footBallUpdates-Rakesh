@@ -4,7 +4,7 @@ import { FootballMainApiService } from 'src/app/services/football-main-api.servi
 import { tabData } from './standings-data';
 import { gridColums } from './grid-colums';
 import { ColDef } from 'ag-grid-community';
-import { LeagueData, responseObj } from 'src/app/models/league';
+import { LeagueData, responseObj, standingsData } from 'src/app/models/league';
 
 @Component({
   selector: 'app-standingsdashboard',
@@ -16,7 +16,7 @@ export class StandingsdashboardComponent {
   links = tabData;
   activeLink = this.links[0];
   public columnDefs: ColDef[] = gridColums;
-  public rowData: [] = [];
+  public rowData: standingsData[] = [];
   leagues: LeagueData[] = [];
   isVisible: boolean = false;
   allData: any = [];
@@ -36,10 +36,14 @@ export class StandingsdashboardComponent {
   }
 
   getStandings(country: string) {
-    this.footBallApi.getStandingsData(country).subscribe((data: responseObj) => {
-      this.rowData = data.response[0].league.standings[0];
-      this.allData = data.response[0];
-      this.isVisible = this.rowData.length ? true : false;
-    });
+    this.footBallApi
+      .getStandingsData(country)
+      .subscribe((data: responseObj) => {
+        if (data.response.length) {
+          this.rowData = data.response[0].league.standings;
+        }
+        this.allData = data.response[0];
+        this.isVisible = this.rowData.length ? true : false;
+      });
   }
 }
