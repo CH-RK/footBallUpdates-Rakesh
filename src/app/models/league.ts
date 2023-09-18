@@ -33,7 +33,7 @@ export interface leagueObj {
     logo: string;
     flag: string;
     season: number;
-    standings: standingsData[];
+    standings: standingsData[][];
 } 
 export interface errors {
   token: string;
