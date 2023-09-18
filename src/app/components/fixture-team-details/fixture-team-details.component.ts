@@ -3,16 +3,16 @@ import { fixtureGridColumns } from './grid-fixture-columns';
 import { FootballMainApiService } from 'src/app/services/football-main-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColDef } from 'ag-grid-community';
-import { responseObjFixtures } from 'src/app/models/fixturemodel';
+import { fixture, responseObjFixtures } from 'src/app/models/fixturemodel';
 
 @Component({
   selector: 'app-fixture-team-details',
   templateUrl: './fixture-team-details.component.html',
-  styleUrls: ['./fixture-team-details.component.css']
+  styleUrls: ['./fixture-team-details.component.css'],
 })
 export class FixtureTeamDetailsComponent {
   public columnDefs: ColDef[] = fixtureGridColumns;
-  public rowData = [];
+  public rowData: fixture[] = [];
   public teamId: number | undefined;
   constructor(
     public route: ActivatedRoute,
@@ -27,10 +27,10 @@ export class FixtureTeamDetailsComponent {
     });
   }
   getTeamFixtures(teamId: number) {
-    this.footBallAPI.getTopListTeams(teamId).subscribe((data: responseObjFixtures) => {
-      this.rowData = data.response;
-      // this.country = data.response[0].league.id;
-      console.log(data);
-    });
+    this.footBallAPI
+      .getTopListTeams(teamId)
+      .subscribe((data: responseObjFixtures) => {
+        this.rowData = data.response;
+      });
   }
 }
