@@ -63,12 +63,12 @@ export class responseObj {
     season: string;
   };
   errors: {
-    token?: string;
+    token: string;
   };
   results: number;
   paging: {
     current: number;
     total: number;
   };
-  response?: [];
+  response: LeagueData[];
 }
