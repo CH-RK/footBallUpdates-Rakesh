@@ -48,6 +48,7 @@ export class StandingsdashboardComponent {
           this.allData = data.response[0].league.standings;
           this.rowData = this.allData[0];
         }
+        this.allData = data.response[0];
         this.isVisible = this.rowData.length ? true : false;
       });
   }
