@@ -10,10 +10,11 @@ import { StandingsdashboardComponent } from './components/standingsdashboard/sta
 import { MatTabsModule } from '@angular/material/tabs';
 import { LinkrenderComponent } from './components/linkrender/linkrender.component';
 import { FixtureTeamDetailsComponent } from './components/fixture-team-details/fixture-team-details.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AgGridModule } from 'ag-grid-angular';
+import { FootballInterceptor } from './services/football-interceptor';
 
 @NgModule({
   imports: [
@@ -38,6 +39,9 @@ import { AgGridModule } from 'ag-grid-angular';
     FixtureTeamDetailsComponent,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: FootballInterceptor, multi: true },
+  ],
 })
 export class AppModule {}
 
